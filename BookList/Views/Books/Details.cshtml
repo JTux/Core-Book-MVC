@@ -1,0 +1,27 @@
+﻿@model BookList.Models.Book
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h3>Details</h3>
+<hr />
+
+<div class="row form-border">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-1">
+                <label asp-for="Name"></label>
+            </div>
+            <div class="col-sm-4">
+                <input asp-for="Name" disabled class="form-control" />
+            </div>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-sm btn-primary">Edit</a>
+        <a asp-action="Index" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Back to LIst</a>
+    </div>
+</div>
