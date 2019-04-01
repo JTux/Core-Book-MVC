@@ -103,7 +103,6 @@ namespace BookList.Controllers
         // POST: Books/Delete/5
         [HttpPost]
         [ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeletePost(int id)
         {
             var book = await _db.Books.SingleOrDefaultAsync(m => m.ID == id);

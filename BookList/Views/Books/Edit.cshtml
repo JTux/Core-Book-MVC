@@ -1,14 +1,14 @@
 ﻿@model BookList.Models.Book
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
 }
 
 <br />
-<h3>Add New Book</h3>
+<h3>Edit Book</h3>
 <hr />
 
-<form asp-action="Create">
+<form asp-action="Edit">
     <div class="row form-border">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
@@ -24,7 +24,7 @@
         </div>
         <br />
         <div class="form-group">
-            <input type="submit" value="Create" class="btn btn-sm btn-primary" />
+            <input type="submit" value="Update" class="btn btn-sm btn-primary" />
             <input type="submit" asp-action="Index" value="Back to List" class="btn btn-sm btn-success" />
         </div>
     </div>
