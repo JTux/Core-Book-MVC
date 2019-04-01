@@ -13,9 +13,30 @@ namespace BookList.Controllers
 
         public BooksController(ApplicationDbContext db) => _db = db;
 
+        // GET: Books
         public IActionResult Index()
         {
             return View(_db.Books.ToList());
+        }
+
+        // GET: Books/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Books/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Book book)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Add(book);
+                await _db.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(book);
         }
 
         protected override void Dispose(bool disposing)
